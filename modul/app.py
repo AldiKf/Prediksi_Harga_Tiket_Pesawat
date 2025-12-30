@@ -102,11 +102,6 @@ h1 {
 .stButton>button:hover {
     background-color: #1558C0 !important;
 }
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<style>
 /* ===== FIX TEXT COLOR STREAMLIT INPUT ===== */
 
 /* Selected value (selectbox) */
@@ -135,6 +130,8 @@ div[aria-disabled="true"] {
 }
 </style>
 """, unsafe_allow_html=True)
+
+
 
 
 # import
