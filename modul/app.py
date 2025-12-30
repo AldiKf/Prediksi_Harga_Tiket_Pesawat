@@ -10,18 +10,47 @@ st.set_page_config(
 # CSS (Ui)
 st.markdown("""
 <style>
-/* FORCE LIGHT MODE */
+/* ===== FORCE LIGHT MODE ===== */
 html, body, [data-testid="stApp"] {
     background-color: #F5F7FA !important;
     color: #1F2937 !important;
 }
 
-/* Main container */
+/* Container */
 .block-container {
     background-color: #F5F7FA !important;
 }
 
-/* Title */
+/* ===== STREAMLIT INPUT FIX ===== */
+
+/* Selectbox, TextInput, TextArea */
+div[data-baseweb="select"] > div,
+div[data-baseweb="input"] > div,
+div[data-baseweb="textarea"] > div {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    border-radius: 12px !important;
+    border: 1px solid #D1D5DB !important;
+}
+
+/* Text inside input */
+input, textarea {
+    color: #111827 !important;
+    background-color: #FFFFFF !important;
+}
+
+/* Placeholder */
+input::placeholder {
+    color: #9CA3AF !important;
+}
+
+/* Dropdown menu */
+ul {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+}
+
+/* ===== TITLES ===== */
 h1 {
     color: #1A73E8;
     font-weight: 700;
@@ -36,7 +65,7 @@ h1 {
     color: #111827;
 }
 
-/* Card */
+/* ===== CARD ===== */
 .card {
     background-color: #FFFFFF;
     padding: 24px;
@@ -59,10 +88,10 @@ h1 {
     font-size: 14px;
 }
 
-/* Button */
+/* ===== BUTTON ===== */
 .stButton>button {
-    background-color: #1A73E8;
-    color: white;
+    background-color: #1A73E8 !important;
+    color: white !important;
     border-radius: 12px;
     padding: 12px 20px;
     font-size: 16px;
@@ -71,10 +100,11 @@ h1 {
 }
 
 .stButton>button:hover {
-    background-color: #1558C0;
+    background-color: #1558C0 !important;
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # import
@@ -277,5 +307,6 @@ if predict:
             <div class="caption"> Jarak penerbangan: {jarak_km:.2f} km</div>
         </div>
         """, unsafe_allow_html=True)
+
 
 
