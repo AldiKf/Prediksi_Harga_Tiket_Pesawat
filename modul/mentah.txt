@@ -1,0 +1,30 @@
+# =========================
+# KATEGORI SESUAI DATA TRAINING
+# =========================
+MASKAPAI_OPTIONS = [
+    "Garuda Indonesia",
+    "Lion Air",
+    "Batik Air",
+    "Transit Maskapai",
+    "Citilink",
+    "Sriwijaya Air",
+    "AirAsia Indonesia",
+    "Super Air Jet",
+    "Transit Premium",
+    "Garuda Indonesia Business",
+    "Sriwijaya Air Premium",
+    "Wings Air"
+]
+
+INFO_OPTIONS = [
+    "No info",
+    "In-flight meal not included",
+    "No check-in baggage included",
+    "1 Long layover",
+    "Change airports",
+    "Business class",
+    "No Info",
+    "1 Short layover",
+    "Red-eye flight",
+    "2 Long layover"
+]
