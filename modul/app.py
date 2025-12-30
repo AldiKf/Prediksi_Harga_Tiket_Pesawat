@@ -10,9 +10,15 @@ st.set_page_config(
 # CSS (Ui)
 st.markdown("""
 <style>
-/* Global */
-.main {
-    background-color: #F5F7FA;
+/* FORCE LIGHT MODE */
+html, body, [data-testid="stApp"] {
+    background-color: #F5F7FA !important;
+    color: #1F2937 !important;
+}
+
+/* Main container */
+.block-container {
+    background-color: #F5F7FA !important;
 }
 
 /* Title */
@@ -30,7 +36,7 @@ h1 {
     color: #111827;
 }
 
-/* Card style */
+/* Card */
 .card {
     background-color: #FFFFFF;
     padding: 24px;
@@ -69,6 +75,7 @@ h1 {
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 # import
 import os
@@ -270,4 +277,5 @@ if predict:
             <div class="caption"> Jarak penerbangan: {jarak_km:.2f} km</div>
         </div>
         """, unsafe_allow_html=True)
+
 
