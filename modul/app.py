@@ -71,6 +71,7 @@ h1 {
 """, unsafe_allow_html=True)
 
 # import
+import os
 import pandas as pd
 import numpy as np
 import joblib
@@ -127,13 +128,16 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
 
 
 # Load Model &+Data
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 @st.cache_resource
 def load_model():
-    return joblib.load("model_linear_regression.joblib")
+    model_path = os.path.join(BASE_DIR, "model_linear_regression.joblib")
+    return joblib.load(model_path)
 
 @st.cache_data
 def load_airports():
-    df = pd.read_csv("airports_clean (1).csv")
+    csv_path = os.path.join(BASE_DIR, "airports_clean (1).csv")
+    df = pd.read_csv(csv_path)
     df["label"] = df["nama_bandara"] + " (" + df["airport_code"] + ")"
     return df
 
@@ -266,3 +270,4 @@ if predict:
             <div class="caption"> Jarak penerbangan: {jarak_km:.2f} km</div>
         </div>
         """, unsafe_allow_html=True)
+
