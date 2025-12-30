@@ -10,47 +10,12 @@ st.set_page_config(
 # CSS (Ui)
 st.markdown("""
 <style>
-/* ===== FORCE LIGHT MODE ===== */
-html, body, [data-testid="stApp"] {
-    background-color: #F5F7FA !important;
-    color: #1F2937 !important;
+/* Global */
+.main {
+    background-color: #F5F7FA;
 }
 
-/* Container */
-.block-container {
-    background-color: #F5F7FA !important;
-}
-
-/* ===== STREAMLIT INPUT FIX ===== */
-
-/* Selectbox, TextInput, TextArea */
-div[data-baseweb="select"] > div,
-div[data-baseweb="input"] > div,
-div[data-baseweb="textarea"] > div {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-    border-radius: 12px !important;
-    border: 1px solid #D1D5DB !important;
-}
-
-/* Text inside input */
-input, textarea {
-    color: #111827 !important;
-    background-color: #FFFFFF !important;
-}
-
-/* Placeholder */
-input::placeholder {
-    color: #9CA3AF !important;
-}
-
-/* Dropdown menu */
-ul {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-}
-
-/* ===== TITLES ===== */
+/* Title */
 h1 {
     color: #1A73E8;
     font-weight: 700;
@@ -65,7 +30,7 @@ h1 {
     color: #111827;
 }
 
-/* ===== CARD ===== */
+/* Card style */
 .card {
     background-color: #FFFFFF;
     padding: 24px;
@@ -88,10 +53,10 @@ h1 {
     font-size: 14px;
 }
 
-/* ===== BUTTON ===== */
+/* Button */
 .stButton>button {
-    background-color: #1A73E8 !important;
-    color: white !important;
+    background-color: #1A73E8;
+    color: white;
     border-radius: 12px;
     padding: 12px 20px;
     font-size: 16px;
@@ -100,33 +65,7 @@ h1 {
 }
 
 .stButton>button:hover {
-    background-color: #1558C0 !important;
-}
-/* ===== FIX TEXT COLOR STREAMLIT INPUT ===== */
-
-/* Selected value (selectbox) */
-div[data-baseweb="select"] span {
-    color: #111827 !important;
-}
-
-/* Dropdown options */
-div[data-baseweb="menu"] span {
-    color: #111827 !important;
-}
-
-/* Placeholder selectbox */
-div[data-baseweb="select"] [aria-selected="false"] {
-    color: #6B7280 !important;
-}
-
-/* Input cursor */
-input {
-    caret-color: #111827 !important;
-}
-
-/* Disabled / faded text */
-div[aria-disabled="true"] {
-    color: #9CA3AF !important;
+    background-color: #1558C0;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -334,6 +273,7 @@ if predict:
             <div class="caption"> Jarak penerbangan: {jarak_km:.2f} km</div>
         </div>
         """, unsafe_allow_html=True)
+
 
 
 
