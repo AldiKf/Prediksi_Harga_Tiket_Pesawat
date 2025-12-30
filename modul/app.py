@@ -105,6 +105,36 @@ h1 {
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+/* ===== FIX TEXT COLOR STREAMLIT INPUT ===== */
+
+/* Selected value (selectbox) */
+div[data-baseweb="select"] span {
+    color: #111827 !important;
+}
+
+/* Dropdown options */
+div[data-baseweb="menu"] span {
+    color: #111827 !important;
+}
+
+/* Placeholder selectbox */
+div[data-baseweb="select"] [aria-selected="false"] {
+    color: #6B7280 !important;
+}
+
+/* Input cursor */
+input {
+    caret-color: #111827 !important;
+}
+
+/* Disabled / faded text */
+div[aria-disabled="true"] {
+    color: #9CA3AF !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 # import
@@ -307,6 +337,7 @@ if predict:
             <div class="caption"> Jarak penerbangan: {jarak_km:.2f} km</div>
         </div>
         """, unsafe_allow_html=True)
+
 
 
 
