@@ -79,6 +79,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import math
+from datetime import date, time, datetime, timedelta
 from sklearn.base import BaseEstimator, TransformerMixin
 
 # Feature Engineering 
@@ -134,7 +135,7 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 @st.cache_resource
 def load_model():
-    model_path = os.path.join(BASE_DIR, "model_linear_regression.joblib")
+    model_path = os.path.join(BASE_DIR, "modelLinearRegression.joblib")
     return joblib.load(model_path)
 
 @st.cache_data
@@ -205,14 +206,42 @@ with st.container():
 
     with col1:
         maskapai = st.selectbox("Maskapai", MASKAPAI_OPTIONS)
-        tgl = st.text_input("Tanggal Perjalanan (dd/mm/yyyy)", "24/03/2019")
-        waktu_dep = st.text_input("Waktu Berangkat (HH:MM)", "22:20")
-        durasi = st.text_input("Durasi Penerbangan", "2h 50m")
+        tgl = st.date_input(
+            "Tanggal Perjalanan",
+            value=date(2019, 3, 24),
+            format="DD/MM/YYYY"
+        )
+        tgl_str = tgl.strftime("%d/%m/%Y")
+        waktu_dep = st.time_input(
+            "Waktu Berangkat",
+            value=time(22, 20)
+        )
 
+        waktu_arr = st.time_input(
+            "Waktu Tiba",
+            value=time(1, 10)
+        )
+        dep_dt = datetime.combine(tgl, waktu_dep)
+        arr_dt = datetime.combine(tgl, waktu_arr)
+
+        # Jika tiba keesokan hari
+        if arr_dt <= dep_dt:
+            arr_dt += timedelta(days=1)
+
+        durasi_menit = int((arr_dt - dep_dt).total_seconds() / 60)
+        dur_jam = durasi_menit // 60
+        dur_menit = durasi_menit % 60
+
+        durasi = f"{dur_jam}h {dur_menit}m"
+        st.text_input(
+            "Durasi Penerbangan ",
+            value=durasi,
+            disabled=True
+        )
     with col2:
         transit = st.selectbox("Jumlah Transit", ["non-stop", "1 stop", "2 stops"])
         info = st.selectbox("Informasi Tambahan", INFO_OPTIONS)
-        waktu_arr = st.text_input("Waktu Tiba", "01:10 22 Mar")
+        # waktu_arr = st.text_input("Waktu Tiba", "01:10 22 Mar")
 
     st.markdown('<div class="section-title"> Rute Penerbangan</div>', unsafe_allow_html=True)
 
@@ -241,7 +270,7 @@ center = st.columns([1,2,1])
 with center[1]:
     predict = st.button(" Prediksi Harga", use_container_width=True)
 
-# PPrediksi (Model)
+# Prediksi (Model)
 if predict:
     if asal == tujuan:
         st.error("Bandara asal dan tujuan tidak boleh sama.")
@@ -256,9 +285,9 @@ if predict:
 
         input_df = pd.DataFrame([{
             "Maskapai": maskapai,
-            "Tanggal_Perjalanan": tgl,
-            "Waktu_Berangkat": waktu_dep,
-            "Waktu_Tiba": waktu_arr,
+            "Tanggal_Perjalanan": tgl_str,
+            "Waktu_Berangkat": waktu_dep.strftime("%H:%M"),
+            "Waktu_Tiba": waktu_arr.strftime("%H:%M"),
             "Durasi_Penerbangan": durasi,
             "Jumlah_Transit": transit,
             "Informasi_Tambahan": info,
@@ -273,8 +302,3 @@ if predict:
             <div class="caption"> Jarak penerbangan: {jarak_km:.2f} km</div>
         </div>
         """, unsafe_allow_html=True)
-
-
-
-
-
