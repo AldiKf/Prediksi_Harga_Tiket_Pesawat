@@ -302,7 +302,7 @@ elif page == "Analisis Data":
     st.markdown("""
     <div style="display:flex; justify-content:space-between; align-items:center;">
     <div>
-        <h1>📈 Analisis Data Penerbangan Maskapai ✈️ </h1>
+        <h1>📈 Analisis Data Penerbangan Maskapai  </h1>
         <div class="caption">Upload CSV Data maskapai untuk dianalisis!</div>
     </div>
     <div class="caption">
@@ -474,3 +474,4 @@ st.markdown("""
         </a>
     </div>
     """, unsafe_allow_html=True)
+
