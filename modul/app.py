@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 # PAGE CONFIG
 st.set_page_config(
-    page_title="Flight Pricing Intelligence",
+    page_title="Prediksi Harga Tiket Pesawat",
     layout="centered"
 )
 # PAGE SELECTOR
@@ -466,4 +466,5 @@ st.markdown("""
         </a>
     </div>
     """, unsafe_allow_html=True)
+
 
