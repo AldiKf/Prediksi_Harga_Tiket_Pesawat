@@ -302,7 +302,7 @@ elif page == "Analisis Data":
     st.markdown("""
     <div style="display:flex; justify-content:space-between; align-items:center;">
     <div>
-        <h1>📈 Analisis Data Penerbangan Maskapai  </h1>
+        <h1>📈 Analisis Data Penerbangan Maskapai </h1>
         <div class="caption">Upload CSV Data maskapai untuk dianalisis!</div>
     </div>
     <div class="caption">
@@ -447,15 +447,7 @@ elif page == "Analisis Data":
                 ax.set_ylabel(selected_numeric)
                 st.pyplot(fig)
 
-            # Distribusi Data
-            if len(numeric_cols) > 1:
-                st.divider()
-                st.subheader("📊 Distribusi Data")
-                fig, ax = plt.subplots()
-                ax.boxplot(df[selected_numeric], vert=False)
-                ax.set_title(f"Distribusi {selected_numeric}")
-                st.pyplot(fig)
-            
+
 
             else:
                 st.info("👆 Silakan upload file CSV terlebih dahulu")
