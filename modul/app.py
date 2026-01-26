@@ -161,17 +161,19 @@ if page == "Prediksi Harga":
 
     # HEADER 
     st.markdown("""
-    <div style="display:flex; justify-content:space-between; align-items:center;">
-    <div>
-        <h1>✈️ Prediksi Harga Tiket Pesawat <h1>
-        <div class="caption">Untuk kebutuhan maskapai dan simulasi tiketing berdasarkan harga</div>
-    </div>
-    <div class="caption">
-        Model: Linear Regression v1.0<br>
-        Last Update: Jan 2026
-    </div>
-    </div>
-    """, unsafe_allow_html=True)
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+            <h1 style="font-size: 45px;">✈️ Prediksi Harga Tiket Pesawat</h1> 
+            <div style="font-size: 20px; color: #6B7280;"> 
+                Untuk kebutuhan maskapai dan simulasi tiketing berdasarkan harga
+            </div>
+        </div>
+        <div style="font-size: 16px; color: #6B7280; text-align: right;">
+            Model: Linear Regression v1.0<br>
+            Last Update: Jan 2026
+        </div>
+        </div>
+        """, unsafe_allow_html=True)
 
     # FORM
     st.markdown('<div class="section-title">✈️ Detail Penerbangan</div>', unsafe_allow_html=True)
@@ -466,5 +468,6 @@ st.markdown("""
         </a>
     </div>
     """, unsafe_allow_html=True)
+
 
 
