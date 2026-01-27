@@ -448,9 +448,6 @@ elif page == "Analisis Data":
                 ax.set_title(f"Rata-rata {selected_numeric} per {selected_category}")
                 ax.set_ylabel(selected_numeric)
                 st.pyplot(fig)
-
-
-
             else:
                 st.info("👆 Silakan upload file CSV terlebih dahulu")
 
@@ -468,6 +465,3 @@ st.markdown("""
         </a>
     </div>
     """, unsafe_allow_html=True)
-
-
-
